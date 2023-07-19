@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel target="1.7">
+      <module name="FtcRobotController-8.0.FtcRobotController" target="11" />
+      <module name="FtcRobotController-8.0.TeamCode" target="11" />
+      <module name="WebBot.FtcRobotController" target="17" />
+      <module name="WebBot.TeamCode" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
