@@ -25,20 +25,22 @@ You cannot directly access library (e.g. OpenCV, RoadRunner) methods from WebBot
 
 To create a hook, go into the WebBotHooks file in TeamCode and create a class implementing the following interface:
 
-java```interface WebBot.Hook {
+```
+interface WebBot.Hook {
     public int[] run(int[] params):
-}```
+}
+```
 
 Then register the hook in the WebBotHooks class:
 
-java```hookManager.registerHook(“hook name”,new MyHook());```
+```hookManager.registerHook(“hook name”,new MyHook());```
 
 The provided SampleHook provides an example of a hook that returns its first parameter plus 1.
 
 When you have changed the behavior of a hook, you will need to manually redeploy TeamCode to the robot. Afterward you will be able to call your hook from WebBot (there is an example of this in SampleMecanum):
 
-java```Hooks.call(“sampleHook”,new int[]{3});```
+```Hooks.call(“sampleHook”,new int[]{3});```
 
 ## Speed of execution
 
-As WebBot code is run on your computer with commands being streamed live to your robot, latency could be a concern. However, in our tests, a robot using WebBot can respond to inputs from the controller just as quickly as one using a normal FTC opmode and is also capable of performing complex calculations (including IMU, encoder, and sensor readings) at sufficient speed. A DcMotor `setPower` call uses only ~4.25ms of latency. (And of course, during tele-op, your Driver Station is streaming gamepad inputs to the Control Hub via WiFi, so the )    
+As WebBot code is run on your computer with commands being streamed live to your robot, latency could be a concern. However, in our tests, a robot using WebBot can respond to inputs from the controller just as quickly as one using a normal FTC opmode and is also capable of performing complex calculations (including ones involving IMU, encoder, and sensor readings) at sufficient speed. A DcMotor `setPower` call uses only ~4.25ms of latency. (And of course, during tele-op, your Driver Station is streaming gamepad inputs to the Control Hub via WiFi, so its latency might not be too different from WebBot, which streams its commands in the same way.)    
